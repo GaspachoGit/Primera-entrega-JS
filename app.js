@@ -23,19 +23,14 @@ const carrito = {
 
 function añadirAlCarrito(stock, precio, carritoCant, carritoPrecio) {
     if (stock >= 1) {
-        carritoCant++;
-        stock--
+        carritoCant = carritoCant + 1;
+        stock = stock - 1
         carritoPrecio = carritoPrecio + precio;
         alert("producto añadido al carrito exitosamente");
     } else {
         alert("este producto no posee stock");
     }
 }
-
-
-
-
-
 
 function Producto(nombre, precio, stock, color, dimenciones) {
     this.nombre = nombre
@@ -53,56 +48,58 @@ const cortina3 = new Producto("Cortina 3", 1850, 6, "roja", "1x1 metro");
 
 
 
-let respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
+var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
 
-while (respuesta != esc || ESC){
+
+while (respuesta != "esc" || respuesta != "ESC"){
     switch (respuesta) {
         //verificación de stock
                 case ("cortina1 stock"):
                     alert(cortina1.stock)
-                    breack;
-            
+                    break;
+
                 case ("cortina2 stock"):
                     alert(cortina2.stock)
-                    breack;
-        
+                    break;
+
                 case ("cortina3 stock"):
                     alert(cortina3.stock)
-                    breack;
+                    break;
         //vista general del priducto
                 case ("cortina1"):
                     console.log(cortina1)
-                    breack;
-        
+                    break;
+
                 case ("cortina2"):
                     console.log(cortina2)
-                    breack;
-        
+                    break;
+
                 case ("cortina3"):
                     console.log(cortina3)
-                    breack;
+                    break;
         //añadir un rpoducto al carrito
                 case ("cortina1 add"):
                     añadirAlCarrito(cortina1.stock, cortina1.precio, carrito.cantidad, carrito.precio)
-                    breack;
-        
+                    break;
+
                 case ("cortina2 add"):
                     añadirAlCarrito(cortina2.stock, cortina2.precio, carrito.cantidad, carrito.precio)
-                    breack;
-        
+                    break;
+
                 case ("cortina3 add"):
                     añadirAlCarrito(cortina3.stock, cortina3.precio, carrito.cantidad, carrito.precio)
-                    breack;
-        //
+                    break;
+        // check del carrito
                 case ("carrito"):
-                    alert(carrito);
-                    breack;
-        
+                    clg(carrito);
+                    break;
+
                 default:
                     alert("ingrese una opción válida,(producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
-                    breack;
+                    break;
             }
-}
+    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
+} 
 
 
 
