@@ -42,16 +42,17 @@ function Producto(nombre, precio, stock, color, dimenciones) {
 
 const cortina1 = new Producto("Cortina 1", 5500, 5, "roja", "2x4 metros");
 
-const cortina2 = new Producto("Cortina 2", 2750, 2, "morada", "2x1.5 metros");
+const cortina2 = new Producto("Cortina 2", 2750, 0, "morada", "2x1.5 metros");
 
 const cortina3 = new Producto("Cortina 3", 1850, 6, "roja", "1x1 metro");
 
 
 
-var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
 
+let comprar = confirm(" Desea comprar?");
 
-while (respuesta != "esc" || respuesta != "ESC"){
+while (comprar){
+    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
     switch (respuesta) {
         //verificación de stock
                 case ("cortina1 stock"):
@@ -91,14 +92,14 @@ while (respuesta != "esc" || respuesta != "ESC"){
                     break;
         // check del carrito
                 case ("carrito"):
-                    clg(carrito);
+                    console.log(carrito);
                     break;
 
                 default:
                     alert("ingrese una opción válida,(producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
                     break;
             }
-    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
+    comprar = confirm("¿Desea realizar otra compra?")
 } 
 
 
