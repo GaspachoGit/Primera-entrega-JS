@@ -13,19 +13,22 @@ Posibilidades:
 
 */
 
-
-
-const carrito = []
-
-class Carrito{
-    constructor(nombre, precio, stock){
-        this.nombre = nombre
-        this.precio = precio
-        this.stock = stock
-    }
+/* function Producto(nombre, precio, stock, color, dimenciones) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.stock = stock;
+    this.color = color;
+    this.dimenciones = dimenciones;
 }
+const cortina1 = new Producto("Cortina 1", 5500, 5, "roja", "2x4 metros");
+const cortina2 = new Producto("Cortina 2", 2750, 0, "morada", "2x1.5 metros");
+const cortina3 = new Producto("Cortina 3", 1850, 6, "celeste", "1.5x1.5 metros");
+const mantel1 = new Producto("Mantel 1", 2350, 6, "blanco", "2.3x1.5 metros");
+const mantel2 = new Producto("Mantel 2", 2850, 3, "rojo y blanco", "2.3x1.5 metros");
+const mantel3 = new Producto("Mantel 3", 2350, 6, "amarillo", "2.3x1.5 metros");
+ */
 
-function añadirAlCarrito(cortinas) {
+/* function añadirAlCarrito(cortinas) {
     let preguntaStock = Number(prompt("¿Qué cantidad de cortinas a comprar?"));
     let stock = cortinas.stock - preguntaStock;
     cortinas.stock = cortinas.stock - preguntaStock;
@@ -38,100 +41,130 @@ function añadirAlCarrito(cortinas) {
         }
         alert(`producto ${cortinas.nombre} añadido al carrito exitosamente`);
     }
+} */
+
+const carrito = []
+
+class Carrito{
+    constructor(nombre, precio, stock){
+        this.nombre = nombre
+        this.precio = precio
+        this.stock = stock
+    }
+}
+
+//Función para añadir al carrito actualizada al formato array
+function añadirAlCarrito(Producto) {
+    let preguntaStock = Number(prompt("¿Qué cantidad de Productos a comprar?"));
+    let stock = Producto.stock - preguntaStock;
+    Producto.stock = Producto.stock - preguntaStock;
+    if (Producto.stock < 0) {
+        alert("Stock insuficiente");
+        cortina.stock = 0
+    } else {
+        for (let index = 0; index < preguntaStock; index++) {
+            carrito.push(new Carrito(Producto.nombre, Producto.precio, stock)); //pusheado al array carrito
+        }
+        alert(`producto ${Producto.nombre} añadido al carrito exitosamente`);
+    }
+}
+
+//función de filtrado
+function flitrado(Producto) {
+    for (let index = 0; index < Productos.length; index++) {
+        const element = array[index];
+        name
+    }
+    
 }
 
 
-function Producto(nombre, precio, stock, color, dimenciones) {
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
-    this.color = color;
-    this.dimenciones = dimenciones;
-  }
-
-const cortina1 = new Producto("Cortina 1", 5500, 5, "roja", "2x4 metros");
-const cortina2 = new Producto("Cortina 2", 2750, 0, "morada", "2x1.5 metros");
-const cortina3 = new Producto("Cortina 3", 1850, 6, "celeste", "1.5x1.5 metros");
-const mantel1 = new Producto("Mantel 1", 2350, 6, "blanco", "2.3x1.5 metros");
-const mantel2 = new Producto("Mantel 2", 2850, 3, "rojo y blanco", "2.3x1.5 metros");
-const mantel3 = new Producto("Mantel 3", 2350, 6, "amarillo", "2.3x1.5 metros");
+//Declaración del array de productos
+const Productos = [
+    {id:1 ,nombre: "Cortina 1", precio: 5500, stock: 5, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
+    {id:2 ,nombre: "Cortina 2", precio: 27500, stock: 0, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
+    {id:3 ,nombre: "Cortina 3", precio: 1850, stock: 6, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
+    {id:4 ,nombre: "Mantel 1", precio: 2350, stock: 6, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
+    {id:5 ,nombre: "Mantel 2", precio: 2850, stock: 3, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
+    {id:6 ,nombre: "Mantel 3", precio: 23500, stock: 6, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
+]
 
 let comprar = confirm("¿Desea comprar?");
 
 while (comprar){
-    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito");
+    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito, (cortina - mantel) para feltrarlos");
     switch (respuesta) {
 //verificación de stock
                 case "cortina1 stock":
-                    alert(cortina1.stock)
+                    alert(Productos[0].stock)
                     break;
 
                 case "cortina2 stock":
-                    alert(cortina2.stock)
+                    alert(Productos[1].stock)
                     break;
 
                 case ("cortina3 stock"):
-                    alert(cortina3.stock)
+                    alert(Productos[2].stock)
                     break;
 
                 case ("mantel1 stock"):
-                    alert(mantel1.stock)
+                    alert(Productos[3].stock)
                     break;
 
                 case ("mantel2 stock"):
-                    alert(mantel2.stock)
+                    alert(Productos[4].stock)
                     break;
 
                 case ("mantel3 stock"):
-                    alert(mantel3.stock)
+                    alert(Productos[5].stock)
                     break;
 //vista general del priducto
                 case ("cortina1"):
-                    console.log(cortina1)
+                    console.log(Productos[0])
                     break;
 
                 case ("cortina2"):
-                    console.log(cortina2)
+                    console.log(Productos[1])
                     break;
 
                 case ("cortina3"):
-                    console.log(cortina3)
+                    console.log(Productos[2])
                     break;
 
                 case ("mantel1"):
-                    console.log(mantel1)
+                    console.log(Productos[3])
                     break;
 
                 case ("mantel2"):
-                    console.log(mantel2)
+                    console.log(Productos[4])
                     break;
 
                 case ("mantel3"):
-                    console.log(mantel3)
+                    console.log(Productos[5])
                     break;
 //añadir un rpoducto al carrito
                 case ("cortina1 add"):
-                    añadirAlCarrito(cortina1)
+                    añadirAlCarrito(Productos[0])
                     break;
 
                 case ("cortina2 add"):
-                    añadirAlCarrito(cortina2)
+                    añadirAlCarrito(Productos[1])
                     break;
 
                 case ("cortina3 add"):
-                    añadirAlCarrito(cortina3)
+                    añadirAlCarrito(Productos[2])
                     break;
 
                 case ("mantel1 add"):
-                    añadirAlCarrito(mantel1)
+                    añadirAlCarrito(Productos[3])
                     break;
 
                 case ("mantel2 add"):
-                    añadirAlCarrito(mantel2)
+                    añadirAlCarrito(Productos[4])
                     break;
 
                 case ("mantel3 add"):
-                    añadirAlCarrito(mantel3)
+                    añadirAlCarrito(Productos[5])
                     break;
 // check del carrito
                 case ("carrito"):
@@ -142,6 +175,14 @@ while (comprar){
                     console.log("Precio Total de la compra: " + precioTotal);
                     console.log("Cantida de Productos seleccionados: " + cantidad);
                     console.log(carrito);
+                    break;
+// filtrado entre cortinas y manteles
+                case ("cortina"):
+                    
+                    break;
+
+                case ("mantel"):
+                    flitrado(Productos)
                     break;
 
                 default:
