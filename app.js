@@ -70,12 +70,18 @@ function añadirAlCarrito(Producto) {
 }
 
 //función de filtrado
-function flitrado(Producto) {
-    for (let index = 0; index < Productos.length; index++) {
-        const element = array[index];
-        name
+function flitrado(producto) {
+    const manteles = producto.filter(x => x.tipo === "mantel")
+    const cortinas = producto.filter(x => x.tipo === "cortina")
+
+    let tipo = prompt("seleccione manteles o cortinas")
+    if (tipo === "manteles") {
+        console.log(manteles)
+    } else if(tipo === "cortinas") {
+        console.log(cortinas)
+    } else{
+        alert ("escoja una opción correcta: manteles / cortinas")
     }
-    
 }
 
 
@@ -92,7 +98,7 @@ const Productos = [
 let comprar = confirm("¿Desea comprar?");
 
 while (comprar){
-    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito, (cortina - mantel) para feltrarlos");
+    var respuesta = prompt("Ingrese una opcion, (producto stock) para checkear el stock de un producto, (producto) para obtener la informacion del mismo, (producto add) para añadir al carrito (carrito) para ver la información del carrito, (filtro) para filtrar");
     switch (respuesta) {
 //verificación de stock
                 case "cortina1 stock":
@@ -177,11 +183,7 @@ while (comprar){
                     console.log(carrito);
                     break;
 // filtrado entre cortinas y manteles
-                case ("cortina"):
-                    
-                    break;
-
-                case ("mantel"):
+                case ("filtro"):
                     flitrado(Productos)
                     break;
 
