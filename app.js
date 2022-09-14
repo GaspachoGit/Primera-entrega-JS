@@ -57,7 +57,7 @@ class Carrito{
 function añadirAlCarrito(Producto) {
     let preguntaStock = Number(prompt("¿Qué cantidad de Productos a comprar?"));
     let stock = Producto.stock - preguntaStock;
-    Producto.stock = Producto.stock - preguntaStock;
+    Producto.stock = Producto.stock - preguntaStock; //resta de stock
     if (Producto.stock < 0) {
         alert("Stock insuficiente");
         cortina.stock = 0
@@ -90,10 +90,12 @@ const Productos = [
     {id:1 ,nombre: "Cortina 1", precio: 5500, stock: 5, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
     {id:2 ,nombre: "Cortina 2", precio: 27500, stock: 0, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
     {id:3 ,nombre: "Cortina 3", precio: 1850, stock: 6, color: "rojo", dimenciones :"2x4m", tipo :"cortina"},
-    {id:4 ,nombre: "Mantel 1", precio: 2350, stock: 6, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
+    {id:4 ,nombre: "Mantel 1", precio: 2350, stock: 8, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
     {id:5 ,nombre: "Mantel 2", precio: 2850, stock: 3, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
-    {id:6 ,nombre: "Mantel 3", precio: 23500, stock: 6, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
+    {id:6 ,nombre: "Mantel 3", precio: 23500, stock: 2, color: "rojo", dimenciones :"2x4m", tipo: "mantel"},
 ]
+
+
 
 let comprar = confirm("¿Desea comprar?");
 
@@ -148,29 +150,47 @@ while (comprar){
                 case ("mantel3"):
                     console.log(Productos[5])
                     break;
-//añadir un rpoducto al carrito
+//añadir un producto al carrito
                 case ("cortina1 add"):
                     añadirAlCarrito(Productos[0])
+                    if(Productos[0].stock>0){
+                        const cortina1A = document.querySelector("#cortina1").textContent = "Añadido :)"
+                    }
                     break;
 
                 case ("cortina2 add"):
                     añadirAlCarrito(Productos[1])
+                    if(Productos[1].stock>0){
+                        const cortina2A = document.querySelector("#cortina2").textContent = "Añadido :)"
+                    }
                     break;
 
                 case ("cortina3 add"):
                     añadirAlCarrito(Productos[2])
+                    if(Productos[2].stock>0){
+                        const cortina3A = document.querySelector("#cortina3").textContent = "Añadido :)"
+                    }
                     break;
 
                 case ("mantel1 add"):
                     añadirAlCarrito(Productos[3])
+                    if(Productos[3].stock>0){
+                        const mantel1A = document.querySelector("#mantel1").textContent = "Añadido :)"
+                    }
                     break;
 
                 case ("mantel2 add"):
                     añadirAlCarrito(Productos[4])
+                    if(Productos[4].stock>0){
+                        const mantel2A = document.querySelector("#mantel2").textContent = "Añadido :)"
+                    }
                     break;
 
                 case ("mantel3 add"):
                     añadirAlCarrito(Productos[5])
+                    if(Productos[5].stock>0){
+                        const mantel3A = document.querySelector("#mantel3").textContent = "Añadido :)"
+                    }
                     break;
 // check del carrito
                 case ("carrito"):
@@ -193,6 +213,13 @@ while (comprar){
             }
     comprar = confirm("¿Desea realizar otra compra?")
 } 
+//Enviar info al front del stock
+const stkC1 = document.querySelector("#stockC1").textContent = `Stock: ${Productos[0].stock} `
+const stkC2 = document.querySelector("#stockC2").textContent = `Stock: ${Productos[1].stock} `
+const stkC3 = document.querySelector("#stockC3").textContent = `Stock: ${Productos[2].stock} `
+const stkM1 = document.querySelector("#stockM1").textContent = `Stock: ${Productos[3].stock} `
+const stkM2 = document.querySelector("#stockM2").textContent = `Stock: ${Productos[4].stock} `
+const stkM3 = document.querySelector("#stockM3").textContent = `Stock: ${Productos[5].stock} `
 
 
 
