@@ -36,11 +36,10 @@ function añadirAlCarrito(Producto) {
         for (let index = 0; index < preguntaStock; index++) {
             carrito.push(new Carrito(Producto.nombre, Producto.precio, stock)); //pusheado al array carrito
         }
-        // alert(`producto ${Producto.nombre} añadido al carrito exitosamente`);
     }
 }
 
-//función de filtrado
+/* //función de filtrado
 function flitrado(producto) {
     const manteles = producto.filter(x => x.tipo === "mantel")
     const cortinas = producto.filter(x => x.tipo === "cortina")
@@ -53,7 +52,7 @@ function flitrado(producto) {
     } else{
         alert ("escoja una opción correcta: manteles / cortinas")
     }
-}
+} */
 
 
 //Declaración del array de productos
